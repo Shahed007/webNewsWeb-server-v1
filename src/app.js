@@ -5,7 +5,11 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 5000;
 
+const createUser = require("./routers/users");
+
 applyMiddleWare(app);
+
+app.use(createUser);
 
 app.get("/health", (req, res) => {
   res.send("my webNewsWaveDB server is ruining");
