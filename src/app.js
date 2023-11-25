@@ -1,8 +1,11 @@
 const express = require("express");
 const connectDB = require("./db/connectDB");
+const applyMiddleWare = require("./middlewares/applyMiddleWare");
 require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 5000;
+
+applyMiddleWare(app);
 
 app.get("/health", (req, res) => {
   res.send("my webNewsWaveDB server is ruining");
