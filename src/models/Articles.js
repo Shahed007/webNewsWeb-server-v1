@@ -21,6 +21,17 @@ const articleSchema = new Schema({
     type: String,
     required: true,
   },
+  viewers: {
+    type: Number,
+    default: 0,
+  },
+  premium: {
+    type: String,
+  },
+  publish_date: {
+    type: Number,
+    required: true,
+  },
 });
 
 const Article = mongoose.model("article", articleSchema);

@@ -7,12 +7,15 @@ const port = process.env.PORT || 5000;
 
 const user = require("./routers/users");
 const publisher = require("./routers/publisher");
+const articles = require("./routers/article");
 
 applyMiddleWare(app);
 
 app.use(user);
 
 app.use(publisher);
+
+app.use(articles);
 
 app.get("/health", (req, res) => {
   res.send("my webNewsWaveDB server is ruining");
