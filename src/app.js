@@ -36,7 +36,7 @@ app.use((err, req, res, next) => {
 const main = async () => {
   await connectDB();
   app.listen(port, () => {
-    console.log(`my server is ruining prot ${port}`);
+    console.log(`my server is ruining port ${port}`);
   });
 };
 
