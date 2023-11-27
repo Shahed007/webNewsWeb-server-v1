@@ -1,7 +1,6 @@
 const { Schema, default: mongoose } = require("mongoose");
 
 const UserScheme = new Schema({
-  _id: String,
   name: {
     type: String,
     required: true,
@@ -10,11 +9,16 @@ const UserScheme = new Schema({
     type: String,
     required: true,
   },
-  logged: {
+  photo: {
     type: String,
     required: true,
   },
-  premiumTaken,
+  premiumTaken: String,
+  roll: {
+    type: String,
+    required: true,
+  },
+  time: String,
 });
 
 const Users = mongoose.model("users", UserScheme);

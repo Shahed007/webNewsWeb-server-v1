@@ -1,7 +1,8 @@
 const express = require("express");
-const { createUser } = require("../../api/users");
+const { createUser, allUser, createAdmin } = require("../../api/users");
 const router = express.Router();
 
-router.post("users", createUser);
-
+router.put("/users", createUser);
+router.get("/users", allUser);
+router.patch("/admin/:id", createAdmin);
 module.exports = router;

@@ -7,6 +7,7 @@ const port = process.env.PORT || 5000;
 
 const createUser = require("./routers/users");
 
+
 applyMiddleWare(app);
 
 app.use(createUser);
