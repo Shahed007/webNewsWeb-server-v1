@@ -11,9 +11,9 @@ const createUser = async (req, res) => {
     const createdUser = await Users.findOneAndUpdate(filter, update, options);
 
     if (createdUser) {
-      res.json({ createUser: true, message: createdUser });
+      res.json({ createUser: true, message: "Sign up successful" });
     } else {
-      res.json({ createUser: false, message: "User creation failed" });
+      res.json({ createUser: false, message: "Sign up filed" });
     }
   } catch (err) {
     res
