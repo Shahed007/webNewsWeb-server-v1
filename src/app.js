@@ -9,6 +9,7 @@ const user = require("./routers/users");
 const publisher = require("./routers/publisher");
 const articles = require("./routers/article");
 const payment = require("./routers/payment");
+const authentication = require("./routers/authentication");
 
 applyMiddleWare(app);
 
@@ -19,6 +20,8 @@ app.use(publisher);
 app.use(articles);
 
 app.use(payment);
+
+app.use(authentication);
 
 app.get("/health", (req, res) => {
   res.send("my webNewsWaveDB server is ruining");

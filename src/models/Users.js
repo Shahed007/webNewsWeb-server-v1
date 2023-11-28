@@ -13,7 +13,10 @@ const UserScheme = new Schema({
     type: String,
     required: true,
   },
-  premiumTaken: String,
+  premiumTaken: {
+    type: String,
+    default: "no",
+  },
   roll: {
     type: String,
     required: true,
