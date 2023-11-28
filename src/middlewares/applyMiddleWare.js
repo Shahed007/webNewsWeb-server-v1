@@ -1,12 +1,15 @@
 const express = require("express");
 const cors = require("cors");
 const cookie_parser = require("cookie-parser");
-const { LOCAL_CLIENT, CLIENT } = require("../config/default");
 
 const applyMiddleWare = (app) => {
   app.use(
     cors({
-      origin: [LOCAL_CLIENT, CLIENT],
+      origin: [
+        "http://localhost:5173",
+        "https://webnewswave-client.web.app",
+        "https://webnewswave-client.firebaseapp.com",
+      ],
       credentials: true,
     })
   );

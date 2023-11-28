@@ -1,6 +1,9 @@
 const Users = require("../../models/Users");
 
 const updateUserByEmail = async (req, res) => {
+  if (req.params?.email !== req.user?.email) {
+    return res.status(401).send({ message: "Unauthorized" });
+  }
   try {
     const userEmail = req.params.email;
     const updatedUserData = req.body;
