@@ -10,11 +10,11 @@ const articleSchema = new mongoose.Schema({
     required: true,
   },
   publisher: {
-    type: [Object],
+    type: String,
     required: true,
   },
   tags: {
-    type: [Object],
+    type: [String],
     required: true,
   },
   description: {

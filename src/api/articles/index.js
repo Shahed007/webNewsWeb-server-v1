@@ -1,3 +1,4 @@
 const createArticles = require("./createArticles");
+const getAllArticles = require("./getAllArticles");
 
-module.exports = { createArticles };
+module.exports = { createArticles, getAllArticles };
