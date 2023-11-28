@@ -19,7 +19,7 @@ const getAllArticles = async (req, res) => {
 
     const articles = await Article.find(query);
 
-    res.status(200).send({ articles });
+    res.status(200).send(articles);
   } catch (error) {
     res.status(500).send({ message: "Internal server error" });
   }
