@@ -2,7 +2,7 @@ const Article = require("../../models/Articles");
 
 const getAllArticles = async (req, res) => {
   try {
-    const { title, tag, publisher } = req.query;
+    const { title, tag, publisher, author_email } = req.query;
     console.log(publisher);
 
     let query = {};
@@ -15,6 +15,10 @@ const getAllArticles = async (req, res) => {
     }
     if (publisher !== "") {
       query.publisher = new RegExp(publisher, "i");
+    }
+
+    if (author_email) {
+      query = { author_email: author_email };
     }
 
     const articles = await Article.find(query);
