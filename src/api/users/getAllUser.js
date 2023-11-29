@@ -1,7 +1,12 @@
 const Users = require("../../models/Users");
 
-const allUser = async (req, res) => {
+const getAllUser = async (req, res) => {
   try {
+    const isAdmin = await Users.findOne({ email: req.user?.email });
+    const { roll } = isAdmin;
+    if (roll !== "admin") {
+      return res.status(403).send({ message: "access denied" });
+    }
     const page = parseInt(req.query.page) || 1;
     const pageSize = parseInt(req.query.pageSize) || 5;
 
@@ -20,4 +25,4 @@ const allUser = async (req, res) => {
   }
 };
 
-module.exports = allUser;
+module.exports = getAllUser;

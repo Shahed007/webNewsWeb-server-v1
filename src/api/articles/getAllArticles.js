@@ -2,6 +2,8 @@ const Article = require("../../models/Articles");
 
 const getAllArticles = async (req, res) => {
   try {
+    const page = parseInt(req.params?.page) || 0;
+    const pageSize = parseInt(req.params?.pageSize) || 10;
     const { title, tag, publisher, author_email } = req.query;
     console.log(publisher);
 
@@ -21,7 +23,9 @@ const getAllArticles = async (req, res) => {
       query = { author_email: author_email };
     }
 
-    const articles = await Article.find(query);
+    const articles = await Article.find(query)
+      .skip((page - 1) * pageSize)
+      .limit(pageSize);
 
     res.status(200).send(articles);
   } catch (error) {

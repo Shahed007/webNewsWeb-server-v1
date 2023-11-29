@@ -1,17 +1,17 @@
 const express = require("express");
 const {
   createUser,
-  allUser,
+  getAllUser,
   createAdmin,
   updateUserByEmail,
   getSingleUser,
 } = require("../../api/users");
-const verifyTokens = require("../../middlewares/verifyToken");
+const verifyToken = require("../../middlewares/verifyToken");
 const router = express.Router();
 
 router.put("/users", createUser);
-router.get("/users", allUser);
+router.get("/users", verifyToken, getAllUser);
 router.patch("/admin/:id", createAdmin);
-router.patch("/user/:email", updateUserByEmail);
-router.get("/user/:email",  getSingleUser);
+router.patch("/user/:email", verifyToken, updateUserByEmail);
+router.get("/user/:email", verifyToken, getSingleUser);
 module.exports = router;

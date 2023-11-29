@@ -2,6 +2,9 @@ const Users = require("../../models/Users");
 
 const updateUserByEmail = async (req, res) => {
   try {
+    if (req.params?.email !== req.user?.email) {
+      return res.status(403).send({ message: "access denied" });
+    }
     const userEmail = req.params.email;
     const updatedUserData = req.body;
 
@@ -10,10 +13,6 @@ const updateUserByEmail = async (req, res) => {
       { ...updatedUserData },
       { new: true }
     );
-
-    if (!updatedUser) {
-      return res.status(404).json({ error: "User not found" });
-    }
 
     res.json({ message: "User updated successfully", success: true });
   } catch (error) {

@@ -1,12 +1,12 @@
 const createUser = require("./createUser");
-const allUser = require("./getAllUser");
+const getAllUser = require("./getAllUser");
 const createAdmin = require("./createAdmin");
 const updateUserByEmail = require("./updateUserByEmail");
 const getSingleUser = require("./getSingleUser");
 
 module.exports = {
   createUser,
-  allUser,
+  getAllUser,
   createAdmin,
   updateUserByEmail,
   getSingleUser,
