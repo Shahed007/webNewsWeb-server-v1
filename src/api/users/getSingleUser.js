@@ -1,12 +1,8 @@
 const Users = require("../../models/Users");
 
 const getSingleUser = async (req, res) => {
-  if (req.params?.email !== req.user?.email) {
-    return res.status(401).send({ message: "Unauthorized" });
-  }
   try {
     const { email } = req.params;
-
 
     const user = await Users.findOne({ email });
 

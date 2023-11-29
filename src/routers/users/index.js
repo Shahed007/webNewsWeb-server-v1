@@ -12,6 +12,6 @@ const router = express.Router();
 router.put("/users", createUser);
 router.get("/users", allUser);
 router.patch("/admin/:id", createAdmin);
-router.patch("/user/:email", verifyTokens, updateUserByEmail);
-router.get("/user/:email", verifyTokens, getSingleUser);
+router.patch("/user/:email", updateUserByEmail);
+router.get("/user/:email",  getSingleUser);
 module.exports = router;
