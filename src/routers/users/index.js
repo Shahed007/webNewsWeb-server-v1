@@ -13,7 +13,7 @@ const router = express.Router();
 router.put("/users", createUser);
 router.get("/users", verifyToken, getAllUser);
 router.patch("/admin/:id", verifyToken, createAdmin);
-router.patch("/user/:email", verifyToken, updateUserByEmail);
+router.patch("/user/:email",  updateUserByEmail);
 router.get("/user/:email", verifyToken, getSingleUser);
 router.get("/user-count", getUserCount);
 module.exports = router;

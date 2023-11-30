@@ -2,9 +2,6 @@ const Users = require("../../models/Users");
 
 const updateUserByEmail = async (req, res) => {
   try {
-    if (req.params?.email !== req.user?.email) {
-      return res.status(403).send({ message: "access denied" });
-    }
     const userEmail = req.params.email;
     const updatedUserData = req.body;
 
