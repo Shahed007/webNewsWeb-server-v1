@@ -2,9 +2,9 @@ const Users = require("../../models/Users");
 
 const getSingleUser = async (req, res) => {
   try {
-    // if (req.params?.email !== req.user?.email) {
-    //   return res.status(403).send({ message: "access denied" });
-    // }
+    if (req.params?.email !== req.user?.email) {
+      return res.status(403).send({ message: "access denied" });
+    }
     const { email } = req.params;
 
     const user = await Users.findOne({ email });
