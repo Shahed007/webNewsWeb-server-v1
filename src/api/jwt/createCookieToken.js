@@ -8,9 +8,11 @@ const createCookieToken = async (req, res) => {
   const token = generateToken(user);
   res
     .cookie("token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      // httpOnly: false,
+      // secure: process.env.NODE_ENV === "production",
+      // sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      httpOnly: false,
+      secure: false,
     })
     .send({ success: true });
 };

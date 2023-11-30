@@ -2,7 +2,12 @@ const Users = require("../../models/Users");
 
 const createAdmin = async (req, res) => {
   try {
-    
+    const isAdmin = await Users.findOne({ email: req.user?.email });
+    const { roll: adminRoll } = isAdmin;
+    if (adminRoll !== "admin") {
+      res.status(403).send({ message: "access denied" });
+    }
+
     const id = req.params.id;
     const { roll } = req.body;
 
