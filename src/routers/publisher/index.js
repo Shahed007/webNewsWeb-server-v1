@@ -1,6 +1,5 @@
 const express = require("express");
 const { createPublisher, getPublishers } = require("../../api/publisher");
-const verifyToken = require("../../middlewares/verifyToken");
 const router = express.Router();
 
 router.post("/publisher", createPublisher);
