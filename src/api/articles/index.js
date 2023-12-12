@@ -5,6 +5,7 @@ const updateArticle = require("./updateArticle");
 const deleteArticle = require("./deleteArticle");
 const updateSingleArticle = require("./updateSingleData");
 const getUserArticle = require("./getUserArticle");
+const articleNotification = require("./ariticaleNotification");
 
 module.exports = {
   createArticles,
@@ -14,4 +15,5 @@ module.exports = {
   deleteArticle,
   updateSingleArticle,
   getUserArticle,
+  articleNotification,
 };
